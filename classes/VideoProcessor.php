@@ -76,7 +76,7 @@ class VideoProcessor
             return false;
         }
         else if ($videoData['error'] !== UPLOAD_ERR_OK) {
-            throw new UploadException($videoData['error']);
+            echo throw new UploadException($videoData['error']);
             return false;
         }
 
