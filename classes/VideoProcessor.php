@@ -64,7 +64,7 @@ class VideoProcessor
     private function processData($videoData, $tempFilePath)
     {
         $videoType = pathinfo($tempFilePath, PATHINFO_EXTENSION);
-
+/*
         if(!$this->isValidSize($videoData))
         {
             echo "The file is too large to upload!";
@@ -80,6 +80,7 @@ class VideoProcessor
             echo "An error occured!";
             return false;
         }
+        */
         return true;
     }
 
