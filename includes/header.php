@@ -1,12 +1,12 @@
-<?php require_once("includes/config.php");
-require_once("includes/classes/User.php");
-require_once("includes/classes/ButtonProvider.php");
-require_once('includes/classes/Video.php');
-require_once('includes/classes/VideoGrid.php');
-require_once('includes/classes/VideoGridItem.php');
-require_once('includes/classes/SubscriptionsProvider.php');
-require_once('includes/classes/NavigationMenuProvider.php');
-require_once('includes/classes/NavigationMenuSmallProvider.php');
+<?php require_once("config.php");
+require_once("classes/User.php");
+require_once("classes/Button.php");
+require_once("classes/Video.php");
+require_once("classes/VideoGrid.php");
+require_once("classes/VideoGridItem.php");
+require_once("classes/Subscriptions.php");
+require_once("classes/NavigationMenu.php");
+require_once("classes/NavigationMenuSmall.php");
 
 
 
@@ -20,44 +20,44 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
         <title>FootTube</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="static/css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <!-- Popper JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="assets/js/commonActions.js"></script>
-        <script src="assets/js/userActions.js"></script>
+        <script src="static/js/commonActions.js"></script>
+        <script src="static/js/userActions.js"></script>
     </head>
         <body>
             <div id="pageContainer">
                 <div id="mastHeadContainer">
                     <button class="navShowHide">
-                        <img src="assets/images/icons/menu.png" />
+                        <img src="static/img/icons/menu.png" />
                     </button>
                     <a class="logoContainer" href="index.php">
-                        <img src="assets/images/icons/FootTube logo.png" />
+                        <img src="static/img/icons/FootTube logo.png" />
                     </a>
 
                     <div class="searchBarContainer">
                         <form action="search.php" method="GET">
                             <input type="text" name="term" class="searchBar" placeholder="Search...">
                             <button class="searchButton">
-                                <img src="assets/images/icons/search.png" />
+                                <img src="static/img/icons/search.png" />
                             </button>
                         </form>
                     </div>
                     <div class="rightIcons">
                         <a href="upload.php">
-                            <img class="upload" src="assets/images/icons/upload.png" alt="upload">
+                            <img class="upload" src="static/img/icons/upload.png" alt="upload">
                         </a>
-                        <?php echo ButtonProvider::createUserProfileNavigationButton($con, $userLoggedInObj->getUsername()); ?>
+                        <?php echo Button::createUserProfileNavigationButton($con, $userLoggedInObj->getUsername()); ?>
                     </div>
                 </div>
                 <div id="sideNavContainer" style="display:none;">
                     <?php
-                        $navigationProvider = new NavigationMenuProvider($con, $userLoggedInObj);
-                        echo $navigationProvider->create();
+                        $navigationMenu = new NavigationMenu($con, $userLoggedInObj);
+                        echo $navigationMenu->create();
                     ?>
                 </div>
                 

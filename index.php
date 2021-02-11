@@ -3,8 +3,8 @@
 	
 <div class="videoSection">
 	<?php
-	$subscriptionsProvider = new SubscriptionsProvider($con, $userLoggedInObj);
-	$subscriptionVideos = $subscriptionsProvider->getVideos();
+	$subscriptions = new Subscriptions($con, $userLoggedInObj);
+	$subscriptionVideos = $subscriptions->getVideos();
 	
 
 	$videoGrid = new VideoGrid($con, $userLoggedInObj->getUsername());

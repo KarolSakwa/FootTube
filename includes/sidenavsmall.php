@@ -1,10 +1,10 @@
 <?php 
-require_once('includes/classes/NavigationMenuSmallProvider.php');
+require_once("classes/NavigationMenuSmall.php");
 ?>
 
 <div id="sideNavContainerSmall">
 <?php
-    $navigationProvider = new NavigationMenuSmallProvider($con, $userLoggedInObj);
-    echo $navigationProvider->create();
+    $navigationMenuSmall = new NavigationMenuSmall($con, $userLoggedInObj);
+    echo $navigationMenuSmall->create();
 ?>
 </div>

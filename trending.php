@@ -1,11 +1,11 @@
 <?php 
 require_once("includes/header.php");
-require_once("includes/classes/TrendingProvider.php");
+require_once("classes/Trending.php");
 include_once('includes/sidenavsmall.php');
 
 
-$trendingProvider = new TrendingProvider($con, $userLoggedInObj);
-$videos = $trendingProvider->getVideos();
+$trending = new Trending($con, $userLoggedInObj);
+$videos = $trending->getVideos();
 
 $videoGrid = new VideoGrid($con, $userLoggedInObj);
 ?>

@@ -1,11 +1,11 @@
 <?php include_once('includes/header.php');?>
-<?php include_once('includes/classes/VideoDetailsFormProvider.php');?>
+<?php include_once("classes/VideoDetailsForm.php");?>
 	<div class="column">
 	
 	<?php
-		$formProvider = new VideoDetailsFormProvider($con);
+		$videoDetailsForm = new VideoDetailsForm($con);
 		
-		echo $formProvider->createUploadForm();
+		echo $videoDetailsForm->createUploadForm();
 
 	?>
 
@@ -25,7 +25,7 @@
 			<div class="modal-content">
 				<div class="modal-body">
 					Please wait. Video upload in progress...
-					<img src="assets/images/icons/loading-spinner.gif" />
+					<img src="static/img/icons/loading-spinner.gif" />
 				</div>
 			</div>
 		</div>

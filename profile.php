@@ -1,6 +1,6 @@
 <?php
 require_once("includes/header.php");
-require_once("includes/classes/ProfileGenerator.php");
+require_once("classes/ProfileGenerator.php");
 
 if(isset($_GET["username"])) {
     $profileUsername = $_GET["username"];

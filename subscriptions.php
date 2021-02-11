@@ -3,11 +3,11 @@ require_once("includes/header.php");
 
 if(!User::isLoggedIn())
 {
-    header("Location: signIn.php");
+    header("Location: logIn.php");
 }
 
-$subscriptionsProvider = new SubscriptionsProvider($con, $userLoggedInObj);
-$videos = $subscriptionsProvider->getVideos();
+$subscriptions = new Subscriptions($con, $userLoggedInObj);
+$videos = $subscriptions->getVideos();
 
 $videoGrid = new VideoGrid($con, $userLoggedInObj);
 ?>

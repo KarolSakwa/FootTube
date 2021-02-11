@@ -1,7 +1,7 @@
 <?php 
-require_once("../includes/config.php");
-require_once("../includes/classes/Video.php");
-require_once("../includes/classes/User.php");
+require_once("../config.php");
+require_once("../classes/Video.php");
+require_once("../classes/User.php");
 
 $videoId = $_POST["videoId"];
 $username = $_SESSION["userLoggedIn"];

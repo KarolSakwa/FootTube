@@ -1,6 +1,6 @@
 <?php 
 require_once("includes/header.php"); 
-require_once("includes/classes/SearchResultsProvider.php"); 
+require_once("classes/SearchResults.php"); 
 
 if(!isset($_GET["term"]) || $_GET["term"] == "")
 {
@@ -19,8 +19,8 @@ else
     $orderBy = "uploadDate";
 }
 
-$searchResultsProvider = new SearchResultsProvider($con, $userLoggedInObj);
-$videos = $searchResultsProvider->getVideos($term, $orderBy);
+$searchResults = new SearchResults($con, $userLoggedInObj);
+$videos = $searchResults->getVideos($term, $orderBy);
 
 $videoGrid = new VideoGrid($con, $userLoggedInObj);
 

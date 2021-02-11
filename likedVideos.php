@@ -1,15 +1,15 @@
 <?php 
 require_once("includes/header.php");
-require_once("includes/classes/LikedVideosProvider.php");
+require_once("classes/LikedVideos.php");
 include_once('includes/sidenavsmall.php');
 
 if(!User::isLoggedIn())
 {
-    header("Location: signIn.php");
+    header("Location: logIn.php");
 }
 
-$likedVideosProvider = new LikedVideosProvider($con, $userLoggedInObj);
-$videos = $likedVideosProvider->getVideos();
+$likedVideos = new LikedVideos($con, $userLoggedInObj);
+$videos = $likedVideos->getVideos();
 
 $videoGrid = new VideoGrid($con, $userLoggedInObj);
 ?>

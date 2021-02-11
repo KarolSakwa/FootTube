@@ -1,13 +1,13 @@
 <?php
 require_once("includes/header.php");
-require_once("includes/classes/VideoPlayer.php");
-require_once("includes/classes/VideoDetailsFormProvider.php");
-require_once("includes/classes/VideoUploadData.php");
-require_once("includes/classes/SelectThumbnail.php");
+require_once("classes/VideoPlayer.php");
+require_once("classes/VideoDetailsForm.php");
+require_once("classes/VideoUploadData.php");
+require_once("classes/SelectThumbnail.php");
 
 if(!User::isLoggedIn())
 {
-	header("Location: signIn.php");
+	header("Location: logIn.php");
 }
 
 if(!isset($_GET["videoId"]))
@@ -50,7 +50,7 @@ if (isset($_POST["saveButton"]))
 
 }
 ?>
-<script src="assets/js/editVideoActions.js"></script>
+<script src="static/js/editVideoActions.js"></script>
 
 <div class="editVideoContainer column">
 	<div class="message">
@@ -68,8 +68,8 @@ if (isset($_POST["saveButton"]))
 	</div>
 	<div class="bottomSection">
 		<?php
-			$formProvider = new VideoDetailsFormProvider($con);
-			echo $formProvider->createEditDetailsForm($video);
+			$videoForm = new VideoDetailsForm($con);
+			echo $videoForm->createEditDetailsForm($video);
 		?>
 	</div>
 </div>

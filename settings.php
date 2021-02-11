@@ -1,19 +1,19 @@
 <?php 
 require_once("includes/header.php"); 
-require_once("includes/classes/Account.php"); 
-require_once("includes/classes/FormSanitizer.php"); 
-require_once("includes/classes/SettingsFormProvider.php"); 
-require_once("includes/classes/Constants.php"); 
+require_once("classes/Account.php"); 
+require_once("classes/FormSanitizer.php"); 
+require_once("classes/SettingsForm.php"); 
+require_once("classes/Constants.php"); 
 
 if(!User::isLoggedIn())
 {
-	header("Location: signIn.php");
+	header("Location: logIn.php");
 	
 }
 
 $detailsMessage = "";
 $passwordMessage = "";
-$formProvider = new SettingsFormProvider();
+$settingsForm = new SettingsForm();
 if (isset($_POST["saveDetailsButton"]))
 {
 	$account = new Account($con);
@@ -71,11 +71,11 @@ if(isset($_POST["savePasswordButton"]))
 			<?php echo $detailsMessage; ?>
 		</div>
 		<?php
-			echo $formProvider->createUserDetailsForm(
+			echo $settingsForm->createUserDetailsForm(
 				isset($_POST["firstName"]) ? $_POST["firstName"] : $userLoggedInObj->getFirstName(),
 				isset($_POST["lastName"]) ? $_POST["lastName"] : $userLoggedInObj->getLastName(),
 				isset($_POST["email"]) ? $_POST["email"] : $userLoggedInObj->getEmail(),
-				isset($_POST["avatar"]) ? $_POST["avatar"] : $userLoggedInObj->getProfilePic()
+				isset($_POST["avatar"]) ? $_POST["avatar"] : $userLoggedInObj->getAvatar()
 			);
 		?>
 	</div>
@@ -83,7 +83,7 @@ if(isset($_POST["savePasswordButton"]))
 		<div class="message">
 			<?php echo $passwordMessage; ?>
 		</div>
-		<?php echo $formProvider->createPasswordForm(); ?>
+		<?php echo $settingsForm->createPasswordForm(); ?>
 	</div>
 </div>
 
