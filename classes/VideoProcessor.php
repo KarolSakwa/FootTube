@@ -173,7 +173,7 @@ class VideoProcessor
 
             $fullThumbnailPath = "$pathToThumbnail/$videoId-$imageName";
 
-            $cmd = "heroku run \"ffmpeg -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath\"";
+            $cmd = "yu";
 
             $outputLog = array();
     
@@ -211,7 +211,7 @@ class VideoProcessor
 
     private function getVideoDuration($filePath)
     {
-        return (int) shell_exec("heroku run \"ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath\"");
+        return (int) shell_exec("yu");
     }
 
     private function updateDuration($duration, $videoId)
