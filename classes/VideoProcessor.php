@@ -122,7 +122,7 @@ class VideoProcessor
 
     private function convertVideoToMp4($tempFilePath, $finalFilePath)
     {
-        $cmd = "$this->ffmpegPath -i $tempFilePath $finalFilePath 2>&1";
+        $cmd = "ffmpeg -i $tempFilePath $finalFilePath 2>&1";
 
         $outputLog = array();
 
@@ -173,7 +173,7 @@ class VideoProcessor
 
             $fullThumbnailPath = "$pathToThumbnail/$videoId-$imageName";
 
-            $cmd = "heroku run 'ffmpeg -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath'";
+            $cmd = "ffmpeg -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath'";
 
             $outputLog = array();
     
@@ -211,7 +211,7 @@ class VideoProcessor
 
     private function getVideoDuration($filePath)
     {
-        return (int) shell_exec("$this->ffprobePath -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
+        return (int) shell_exec("ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 $filePath");
     }
 
     private function updateDuration($duration, $videoId)
