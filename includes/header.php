@@ -54,7 +54,7 @@ $userLoggedInObj = new User($con, $usernameLoggedIn);
                         <?php echo Button::createUserProfileNavigationButton($con, $userLoggedInObj->getUsername()); ?>
                     </div>
                 </div>
-                <div id="sideNavContainer" style="display:none; padding-left: 0;">
+                <div id="sideNavContainer" style="display:none;">
                     <?php
                         $navigationMenu = new NavigationMenu($con, $userLoggedInObj);
                         echo $navigationMenu->create();

@@ -80,7 +80,7 @@ a:hover
 
 #mainContentContainer
 {
-    padding: 10px 30px;
+    padding: 10px 100px;
 	display: flex;
 	flex: 1;
     background-color: #fafafa;
@@ -89,7 +89,7 @@ a:hover
 
 #mainSectionContainer.leftPadding
 {
-    padding-left: 240px;
+    padding-left: 170px;
 }
 
 #mainSectionContainer.leftPaddingSmall
@@ -657,7 +657,6 @@ input[type="submit"]
 .videoGridHeader div
 {
     flex: 1;
-    padding-left: 60px;
 }
 .videoGrid.large 
 {
