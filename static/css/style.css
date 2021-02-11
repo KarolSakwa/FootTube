@@ -657,6 +657,7 @@ input[type="submit"]
 .videoGridHeader div
 {
     flex: 1;
+    padding-left: 60px;
 }
 .videoGrid.large 
 {
