@@ -46,6 +46,7 @@ class ProfileGenerator {
         return "<div class='backgroundImageContainer'>
 					<img src='$backgroundImageObj' class='backgroundImage'>
 					<div class='editBackgroundImageButton' <?php $editButtonDisplay ;?>
+						
                         <form action='' method='POST' enctype='multipart/form-data'>
                             <input type='file' onchange='this.form.submit()' name='backgroundImage' >
                         </form>
@@ -83,7 +84,7 @@ class ProfileGenerator {
 			echo "Sorry, there was an error uploading your file.";
 		}
 		header("Refresh:0");
-		return $ackgroundImagePath;
+		return $backgroundImagePath;
     }
 
     public function updateBackgroundImage($username)

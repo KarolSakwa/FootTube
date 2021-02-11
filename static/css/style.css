@@ -788,7 +788,7 @@ input[type="submit"]
     right: 5px;
     opacity: 0;
     position: absolute;
-    background: url(../images/icons/editFile.png) no-repeat;
+    background: url(../img/icons/editFile.png) no-repeat;
     transition: all 0.2s ease;
 }
 
