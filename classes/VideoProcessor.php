@@ -80,11 +80,11 @@ class VideoProcessor
             return false;
         }
 
-        //else if ($this->hasError($videoData))
-        //{
-        //    echo "An error occured!";
-        //    return false;
-        //}
+        else if ($this->hasError($videoData))
+        {
+            echo "An error occured!";
+            return false;
+        }
         return true;
     }
 
