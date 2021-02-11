@@ -173,7 +173,7 @@ class VideoProcessor
 
             $fullThumbnailPath = "$pathToThumbnail/$videoId-$imageName";
 
-            $cmd = "$this->ffmpegPath -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath";
+            $cmd = "heroku run 'ffmpeg -i $filePath -ss $interval -s $thumbnailSize -vframes 1 $fullThumbnailPath'";
 
             $outputLog = array();
     
