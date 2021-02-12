@@ -77,8 +77,7 @@ class VideoProcessor
         }
         else if ($this->hasError($videoData))
         {
-            echo $videoData["error"];
-            //echo "An error occured!";
+            echo "An error occured!";
             return false;
         }
         return true;
