@@ -12,16 +12,15 @@ class VideoProcessor
     public function __construct($con)
     {
         $this->con = $con;
-        //$this->ffmpegPath = realpath("ffmpeg/bin/ffmpeg.exe");
         $this->ffmpegPath = realpath("/app/vendor/ffmpeg/ffmpeg");
         $this->ffprobePath = realpath("/app/vendor/ffmpeg/ffprobe");
     }
 
     public function upload($videoUploadData)
     {
-        $targetDirectory = "uploads/videos/";
+        $targetDir = "uploads/videos/";
         $videoData = $videoUploadData->getVideoArray();
-        $tempFilePath = $targetDirectory . uniqid() . basename($videoData["name"]);
+        $tempFilePath = $targetDir . uniqid() . basename($videoData["name"]);
         $tempFilePath = str_replace(" ","_", $tempFilePath);
         $isValidData = $this->processData($videoData, $tempFilePath);
 
@@ -31,7 +30,7 @@ class VideoProcessor
         }
         if(move_uploaded_file($videoData["tmp_name"], $tempFilePath))
         {
-            $finalFilePath = $targetDirectory . uniqid() . ".mp4";
+            $finalFilePath = $targetDir . uniqid() . ".mp4";
 
             if(!$this->insertVideoData($videoUploadData, $finalFilePath))
             {
