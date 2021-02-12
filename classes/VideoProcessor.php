@@ -12,8 +12,8 @@ class VideoProcessor
     public function __construct($con)
     {
         $this->con = $con;
-        $this->ffmpegPath = realpath("/app/vendor/ffmpeg/ffmpeg");
-        $this->ffprobePath = realpath("/app/vendor/ffmpeg/ffprobe");
+        $this->ffmpegPath = "ffmpeg";
+        $this->ffprobePath = "ffprobe";
     }
 
     public function upload($videoUploadData)
