@@ -75,14 +75,10 @@ class VideoProcessor
             echo "Invalid file type!";
             return false;
         }
-        else if ($videoData['error'] !== UPLOAD_ERR_OK) {
-            echo throw new UploadException($videoData['error']);
-            return false;
-        }
-
         else if ($this->hasError($videoData))
         {
-            echo "An error occured!";
+            echo $videoData["error"];
+            //echo "An error occured!";
             return false;
         }
         return true;
