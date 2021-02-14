@@ -23,6 +23,7 @@ class Comment
         $this->con = $con;
         $this->userLoggedInObj = $userLoggedInObj;
         $this->videoId = $videoId;
+    
     }
 
     public function create()

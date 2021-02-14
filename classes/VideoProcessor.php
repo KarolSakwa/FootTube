@@ -7,7 +7,7 @@ class VideoProcessor
     private $sizeLimit = 250000000;
     private $ffmpegPath;
     private $ffprobePath;
-    private $allowedTypes = array('mp4', 'flv', 'avi', 'mov', 'pdf');
+    private $allowedTypes = array('mp4', 'flv', 'avi', 'mov');
 
     public function __construct($con)
     {

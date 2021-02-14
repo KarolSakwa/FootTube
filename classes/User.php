@@ -56,9 +56,9 @@ class User
 	}
 	public function getAvatar()
 	{
-		return $this->sqlData["avatar"];
+		$avatar = isset($this->sqlData["avatar"]) ? $this->sqlData["avatar"] : 'static\img\avatars\default.png';
+		return $avatar;
 	}
-
 	
 	public function isSubscribedTo($userTo)
 	{
